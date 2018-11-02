@@ -3,19 +3,40 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require("body-parser");
+var expressHbs = require("express-handlebars");
+var mongoose = require('mongoose');
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
+var passportLocal = require('passport-local');
+
 
 var indexRouter = require('./routes/index');
 
 var app = express();
 
+mongoose.connect('mongodb://localhost/nollymart',(err) => {
+  if (err) {
+    console.log("Error occured while connecting to mongodb");
+  }
+  else{
+    console.log("Connecting to mongodb")
+  }
+});
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.engine('.hbs', expressHbs({defaultLayout:'layout',extname:'.hbs'}));
+app.set('view engine', '.hbs');
 
 app.use(logger('dev'));
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: 'mysecrettissupper', resave:false, saveUninitialized:false}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

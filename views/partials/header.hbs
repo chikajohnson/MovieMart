@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand font-weight-bold mx-20" href="#">NollyMart</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto font-weight-bold">
+            {{!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li> --}}
+        </ul>
+        <a href="#" class="text-light font-weight-bold">
+           <i class="fa fa-shopping-cart text-light"></i>
+          Shopping Cart           
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+
+        <div class="dropdown text-light font-weight-bold " style="margin-right:30px;">
+            <a href="#" class="text-light" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i class="fa fa-user text-light "></i> User Management 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Change Password</a>
+                <a class="dropdown-item" href="#">User Account</a>
+                <a class="dropdown-item bg-danger text-light font-weight-bold" href="#">Log Out</a>
+            </div>
+        </div>
+    </div>
+</nav>
